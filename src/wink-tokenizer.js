@@ -57,6 +57,11 @@ var rgxTime = /(?:\d|[01]\d|2[0-3]):?(?:[0-5][0-9])?\s?(?:[ap]\.?m\.?|hours|hrs)
 var rgxWordL1 = /[a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF][a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\']*/gi;
 // Define [Devanagari Unicode Block](https://unicode.org/charts/PDF/U0900.pdf)
 var rgxWordDV = /[\u0900-\u094F\u0951-\u0963\u0970-\u097F]+/gi;
+
+//// patched !!!!!!!!!!!!!!!!!!!!!!!!!
+// Cyrillic Block
+var rgxWorkCyrillic = /[\u0430-\u044f]+/gi;
+//// patched !!!!!!!!!!!!!!!!!!!!!!!!!
 // Symbols go here; including Om.
 var rgxSymbol = /[\u0950\~\@\#\%\^\+\=\*\|<>&]/g;
 // For detecting if the word is a potential contraction.
@@ -82,6 +87,9 @@ var rgxsMaster = [
   { regex: rgxCurrency, category: 'currency' },
   { regex: rgxWordL1, category: 'word' },
   { regex: rgxWordDV, category: 'word' },
+  //// patched !!!!!!!!!!!!!!!!!!!!!!!!!
+  { regex: rgxWorkCyrillic, category: 'word' },
+  //// patched !!!!!!!!!!!!!!!!!!!!!!!!!
   { regex: rgxPunctuation, category: 'punctuation' },
   { regex: rgxSymbol, category: 'symbol' }
 ];
